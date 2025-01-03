@@ -1,42 +1,55 @@
 ---
-title: "Hugo Framework and Markdown"
+title: "Get Started with KubeVision"
 chapter: true
 weight: 4
 ---
 
-# Hugo Framework and Markdown
-<br>
+# View Cluster Insights in 20/20 with KubeVision :eye:
+<ol>
+<li> Go to your Argo CD instance and click on Settings in the top right corner.
+</li>
+<li> Search for KubeVision on the Feature tab on the left.
+</li>
+<li>
+Enable the KubeVision feature for your Argo CD instance.
+</li>
+<li>Once enabled, it'll list all the clusters configured in your Argo CD Instance. Enable the KubeVision feature for your desired cluster.
+</li>
 
-### Setting Up The Workshop: AWS Hosted Or Self-paced
-By utilizing the Hugo language localization settings, directing the workshop towards a specific setup can be simplified. The `Language` setting in the `config.toml` file will allow you to distinguish between having one option or both. Commenting out one of the languages will hide all files that are related to that setup. By default, only the self-guided setup will be enabled. To enable switching, set `disableLanguageSwitchingButton` to `false` in the `config.toml`. If you want to have only the Event Engine setup, set the `defaultContentLanguage` at the top of the `config.toml` file to `ee`.
+</ol>
 
-### The Entry Point Of The Workshop And Naming Conventions
-All modifications should be done to files in the `content` folder. `_index.md` serves as the main entry point to your workshop. Adding modules can be done utilizing the format of `#_title` as a folder within `content`. By adding a number value to the title, this helps to keep the files structured in parity with the content of the workshop. A good practice for file naming is to have the folder be the module number and the submodule numbers add to that number reflecting their order. For example, the first module is `1_ModuleOne` and the submodules would be `11_SubmoduleOne`, `12_SubmoduleTwo`, and so forth. <br> <!-- <br> applies a line break to paragraphs -->
-To ensure the modules and submodules follow the correct structure order, adjust the "weight" value in the heading of the file to reflect the order you wish to use. Three module examples are included in this template with the second being split based upon the method of setup. The same rules apply for submodules. `_index.md` will be the entry point of that module. Submodules should be named with the format of `{module number}{weight}_{title}.{language}.md`. For example, `11_Foreword.md` would be the first submodule of module one in the default language/setup. `31_PartnerSetup.ee.md` would be the first submodule of module 3 in the EventEngine language/setup.
+## Explorer Dashboard 
+![Explorer Dashboard](/aws-modernization-workshop-base-main/static/images/ExplorerDashboard.png)
+The Explorer Dashboard allows users to browse through cluster resources. Users can customize and tailor the Explorer Dashboard to suit their needs.
 
-### Working With Hugo Markdown and Shortcode
-The following links will supply you with all the reference documentation about Hugo markdown. For more experienced developers, inline HTML is also an option to add more customization. For example `<p style='text-align: left;'>` inline will allow you to adjust your text placement.
+## Deprecated APIs Dashboard 
+![Deprecated APIs](/aws-modernization-workshop-base-main/static/images/DeprecatedAPIs.png)
+Sometimes, deprecated APIs cause all sorts of trouble in an application. The Deprecated APIs Dashboard helps you stay on top of obsolete APIs.
 
-### Markdown and Shortcode Resources
-{{% notice tip %}}
-The following links are your go-to resource for markdown and shortcode reference in building your workshop: <br>
-* Markdown cheat sheet https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet <br>
-* Learn theme markdown https://learn.netlify.app/en/cont/markdown/ <br>
-* Menu extras and shortcuts https://learn.netlify.app/en/cont/menushortcuts/ <br>
-* Using Font Awesome Emoji's <i class="fas fa-heart"></i> https://learn.netlify.app/en/cont/icons/ to help your page pop <i class="fas fa-glass-cheers"></i>
-{{% /notice %}}
+## Stuck in Deletion Resources
+![Stuck in Deletion](/aws-modernization-workshop-base-main/static/images/StuckinDeletionResources.png)
+As the name suggests, this dashboard is for resources that are stuck in deletion. Resources displayed here have been stuck in the deletion state for more than 1 hour, as indicated by their deletion timestamps set over 1 hour ago.
 
-### Adding Images and Static Media 
-Any images and static media to be included in the workshop need to be placed in the `static/images` folder. The format to display an image is as follows: `![Alternate Text](/images/imagename.jpg)` <br>
+## Container Dashboard
+![Container Dashboard](/aws-modernization-workshop-base-main/static/images/ContainerDashboard.png)
+View your containers on the Container Dashboard. You can filter the Container Dashboard by clicking on the boxes. You can filter by Resource Usage, Resource Limits, and Resource requests. You can see how much memory and CPU a container uses at a glance.
 
-For example, the markdown for this dog is `![An adorable puppy](/images/dog.jpg)` and the image is in the `static/images` folder. <br>
-![An adorable puppy](/images/dog.jpg)
+## Image Dashboard
+![Images](/aws-modernization-workshop-base-main/static/images/ImageDashboard.png)
+With KubeVision, you can check out the Images Dashboard for information about the images in your clusters.
 
-### Creating Links
-The format for creating links is `[Link Display Text](http://example.com)`. For example, this link [Hugo Framework](https://gohugo.io/about/what-is-hugo/) was created using `[Hugo Framework](https://gohugo.io/about/what-is-hugo/)`.
+## Infrastructure Dashboard
+![Infrastructure](/aws-modernization-workshop-base-main/static/images/InfrastructureDashboard.png)
+There are two different views in the Infrastructure Dashboard: **Nodes** view and **Pods** view.
 
-### The "More" Menu Section
-This section of the menu on the left is designed to add additional resources that are related to the workshop but not necessarily part of the workshop itself. To modify these links, edit the sections marked `[[menu.shortcuts]]` in the `config.toml` located in the root folder. The "name" portion will be what is displayed in the menu. The "url" should be the address of the link. The "weight" setting will adjust the display order, similar to the other "weight" settings utilized in indexes and modules mentioned previously.
+## Timeline View
+![Timeline](/aws-modernization-workshop-base-main/static/images/KubeVisionTimelineView.png)
+KubeVision’s Timeline view is a game changer. As stated above, you can go back as far as 14 days. The Akuity Platform stores and displays information on critical workload events, making it a fantastic debugging tool. 
 
-### Ensuring Pages Appear In Both Setup Versions
-A shortcut to creating the workshop with different setup versions is utilizing the localization functionality of Hugo. By adding a secondary extension to the filename, this file will be included in the specific version of the workshop. Currently, the base utilizes the format `*.ee.md` to signify that the page is to be used in the AWS EventEngine setup. Much of the time, the files will be the same as the content only differs at specific points. It is necessary to add them, however, to make sure that the common content is duplicated across both versions. If you wish to change the secondary extension or default version, this can be done in the `config.toml` file in the heading and `[Languages]` sections.
+## Tree View
+![Tree View](/aws-modernization-workshop-base-main/static/images/TreeView.png)
+You can access Tree View by clicking the blue button next to the drop-down menu used to change dashboards. Tree View provides a visual representation of your clusters and can be filtered by namespaces. 
+## AI Assistant
+![Ai Assist](/aws-modernization-workshop-base-main/static/images/Ai.png)
+The AI Assistant feature is already available through the Argo CD extension. The new KubeVision feature further enhances the AI Assistant’s capabilities, providing Akuity Platform users with deep insights into all their Kubernetes resources.
+

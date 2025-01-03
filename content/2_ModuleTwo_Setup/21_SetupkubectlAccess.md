@@ -1,5 +1,5 @@
 ---
-title: "Self-Guided Setup Instructions" # MODIFY THIS TITLE
+title: "Set Up kubectl Access to EKS" # MODIFY THIS TITLE
 chapter: true
 weight: 1 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
 ---
@@ -7,32 +7,40 @@ weight: 1 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
 <!-- MORE SUBMODULES CAN BE ADDED TO DIVIDE UP THE SETUP INTO SMALLER SECTIONS -->
 <!-- COPY AND PASTE THIS SUBMODULE FILE, RENAME, AND CHANGE THE CONTENTS AS NECESSARY -->
 
-# AWS Account Setup <!-- MODIFY THIS HEADING -->
+# Set Up <code>kubectl</code> Access to EKS :computer:<!-- MODIFY THIS HEADING -->
+<ol>
+<li> Check to make sure your AWS CLI is authenticated by getting the name of your EKS cluster.
 
-## Submodule One Heading <!-- MODIFY THIS SUBHEADING -->
+<pre><code> aws eks list-clusters
+</code></pre>
+The output should be similar to the following:
+<pre><code> {
+    "clusters": [
+        "eksworkshop-eksctl"
+    ]
+}
+</code></pre>
 
-This paragraph block can be used to explain how to setup an AWS account. Example content guidance can be found at the bottom of the page.
+</li>
+<li> Create a kubeconfig file for your cluster using the following command:
 
-{{% notice info %}}
-<p style='text-align: left;'>
-**REMOVE:** With the exception of _index.md, the module folders and filenames should be changed to better reflect their content, i.e. 1_Planning as the folder and 11_HowToBegin as the first submodule. Changing the "weight" value of the header is ultimately what reflects the order the modules are presented.
-</p>
-{{% /notice %}}
+<pre><code> aws eks update-kubeconfig --name $(aws eks list-clusters | jq -r .clusters[0])
+</code></pre>
+The output should be similar to the following:
+<pre><code> Added new context arn:aws:eks:us-east-1:338615488317:cluster/<cluster-name> to /home/vscode/.kube/config
+</code></pre>
 
-### Next Section Heading <!-- MODIFY THIS HEADING -->
-This paragraph block can optionally be utilized to lead into the next section of the workshop.
+</li>
+<li> Let's check to see if <code>kubectl</code> can access the cluster.
 
-#### Example Content Guidance
-# Setting up your AWS account <!-- MODIFY THIS HEADING -->
+<pre><code> k get nodes
+</code></pre>
+The output should be similar to the following:
+<pre><code> NAME                              STATUS   ROLES    AGE   VERSION
+ip-192-168-108-33.ec2.internal    Ready    <none>   2d    v1.28.8-eks-ae9a62a
+ip-192-168-158-117.ec2.internal   Ready    <none>   2d    v1.28.8-eks-ae9a62a
+ip-192-168-182-251.ec2.internal   Ready    <none>   2d    v1.28.8-eks-ae9a62a
+</code></pre>
+</li>
 
-If you don’t already have an AWS account with Administrator access: create one now by clicking <a href="https://aws.amazon.com/getting-started/">here</a>.
-
-Once you have an AWS account, ensure you are following the remaining workshop steps as an IAM user with administrator access to the AWS account: <a href="https://console.aws.amazon.com/iam/home?#/users$new">Create a new IAM user to use for the workshop</a>
-
-Enter the user details: create user
-
-Attach the AdministratorAccess IAM Policy: attach policy
-
-Click to create the new user: finish creation
-
-Take note of the login URL and save: login url
+</ol>

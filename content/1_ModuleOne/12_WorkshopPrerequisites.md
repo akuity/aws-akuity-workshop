@@ -1,34 +1,25 @@
 ---
 title: "Workshop Prerequisites" # MODIFY THIS TITLE IF APPLICABLE
 chapter: true
-weight: 4 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES IF APPLICABLE
+weight: 2 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES IF APPLICABLE
 ---
 
-# Workshop Prerequisites <!-- MODIFY THIS HEADING IF APPLICABLE -->
+# Workshop Prerequisites :construction:<!-- MODIFY THIS HEADING IF APPLICABLE -->
 
-## Submodule Four Heading <!-- MODIFY THIS SUBHEADING -->
+# Getting Started :bulb: <!-- MODIFY THIS SUBHEADING -->
+To best understand this tutorial, make sure you have at least minimal working knowledge of the following concepts:
+<ul>
+<li><a href="https://youtu.be/4ht22ReBjno?t=164">Kubernetes</a></li>
+<li><a href="https://akuity.io/blog/getting-into-gitops">GitOps</a></li>
+<li><a href="https://akuity.io/blog/deployment-made-easy-with-argo-cd">Argo CD</a></li>
+</ul>
 
-This paragraph block should be an introduction to the submodule. Are there any prerequisites the user must perform to begin the workshop? Do they need to sign up for any external accounts or install any tools? An example of content guidance can be found at the bottom of this page.
-
-{{% notice info %}}
-<p style='text-align: left;'>
-**REMOVE:** With the exception of _index.md, the module folders and filenames should be changed to better reflect their content, i.e. 1_Planning as the folder and 11_HowToBegin as the first submodule. Changing the "weight" value of the header is ultimately what reflects the order the modules are presented.
-</p>
-{{% /notice %}}
-
-### Next Section Heading <!-- MODIFY THIS HEADING -->
-This paragraph block can optionally be utilized to lead into the next section of the workshop.
-
-
-#### Example of content guidance
-
-# Workshop Prerequisites
-
-There are some prerequisites required for completing this workshop.
+# To Start This Workshop, You'll Need: 
 <ol>
     <li>Create a <a href="https://github.com/">GitHub account</a></li>
-    <li>Create a <a href="https://hub.docker.com/signup">Docker Hub account</a></li>
+    <li>Create an <a href="https://akuity.cloud">Akuity account</a></li>
     <li>Create an <a href="https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all">AWS account</a></li>
+    <li>Have an AWS <a href="https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html">EKS Cluster</a> ready
 </ol>
 
 {{% notice %}}

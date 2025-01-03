@@ -1,5 +1,5 @@
 ---
-title: "Create a Workspace" # MODIFY THIS TITLE
+title: "Deploying Resources into the Cluster with Akuity Platform" # MODIFY THIS TITLE
 chapter: true
 weight: 2 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
 ---
@@ -8,61 +8,51 @@ weight: 2 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
 <!-- COPY AND PASTE THIS SUBMODULE FILE, RENAME, AND CHANGE THE CONTENTS AS NECESSARY -->
 
 
-# Set Up The Workspace <!-- MODIFY THIS SUBHEADING -->
+# Deploying Resources into the Cluster with Akuity Platform :high_brightness: <!-- MODIFY THIS SUBHEADING -->
+<ol>
+<li> Create an account on the <a href="https://training.akuity.cloud/">Akuity Platform</a>.
 
-## Submodule Two Heading <!-- MODIFY THIS SUBHEADING -->
+![Akuity Login Page](/aws-modernization-workshop-base-main/static/images/akuitylogin.png)
+</li>
+<li>  You have the option to use either GitHub SSO or Google SSO to sign up.
+</li>
 
-This paragraph block can be used to explain how to create a workspace if necessary. Example content guidance can be found at the bottom of the page.
+<li> Create an organization on the Akuity Platform by clicking "Organization", then create.
 
-{{% notice info %}}
-<p style='text-align: left;'>
-**REMOVE:** With the exception of _index.md, the module folders and filenames should be changed to better reflect their content, i.e. 1_Planning as the folder and 11_HowToBegin as the first submodule. Changing the "weight" value of the header is ultimately what reflects the order the modules are presented.
-</p>
-{{% /notice %}}
+![Akuity Login Page](/aws-modernization-workshop-base-main/static/images/akuitylogin.png)
+</li>
+<li> Name your organization following the rules listed below the Organization Name field.
+</li>
 
-### Next Section Heading <!-- MODIFY THIS HEADING -->
-This paragraph block can optionally be utilized to lead into the next section of the workshop.
+</ol>
 
-#### Example Content Guidance
+# Set Up Access for the Akuity CLI :computer:
+<ol>
+<li> Select the Organization you want to create an API key for, from the pull down menu on your Organization.
 
-# Set Up Your Workspace
-AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don’t need to install files or configure your laptop for this workshop.
+</li>
 
-We will use Amazon Cloud9 to access our AWS accounts via the AWS CLI in this Workshop. There are a few steps to complete to set this up
+<li> Select the API Keys tab.
 
-    Create a new Cloud9 IDE environment
-    Create an IAM role for your workspace
-    Attach the IAM role to your workspace
-    Configure workshop specific requirements
+</li>
 
+<li> Click the + New Key Button on the lower right side of the page.
 
-### Create a new Cloud9 IDE environment <!-- MODIFY THIS SUBHEADING -->
+![Akuity APIKey Page](/aws-modernization-workshop-base-main/static/images/APIkeycreation.png)
+</li>
 
-    Within the AWS console, use the region drop list to select us-east-1 (N. Virginia). This will ensure the workshop script provisions the resources in this same region..
+<li> Set the description for the key as <code>Akuity EKS Workshop</code>.
+</li>
 
-    Navigate to the Cloud9 console or just search for it under the AWS console services menu.
+<li> Assign the <code>Owner</code> Role to the key.
+</li>
 
-    Click the Create environment button
+<li> Click the create button once you're done.
+</li>
 
-    For the name use circleci-workshop, then click Next step
+<li> An API Key prompt will pop up once you hit create, so go ahead and click the Copy to Clipboard button. Then go ahead and paste and run the command in the terminal.
 
-    Select the default instance type t2.micro
+![Akuity APIKey Page](/aws-modernization-workshop-base-main/static/images/Keycreated1.png)
+</li>
 
-    Leave all the other settings as default and click Next step followed by Create environment
-
-Info: This will take about 1-2 minutes to provision
-
-
-### Configure Cloud9 IDE environment <!-- MODIFY THIS SUBHEADING -->
-
-When the environment comes up, customize the environment by:
-
-    Close the welcome page tab
-
-    Close the lower work area tab
-
-    Open a new terminal tab in the main work area.
-
-Tip: If you don’t like this dark theme, you can change it from the View / Themes Cloud9 workspace menu.
-
-Tip: Cloud9 requires third-party-cookies. You can whitelist the specific domains. You are having issues with this, Ad blockers, javascript disabler, and tracking blockers should be disabled for the cloud9 domain, or connecting to the workspace might be impacted.
+</ol>

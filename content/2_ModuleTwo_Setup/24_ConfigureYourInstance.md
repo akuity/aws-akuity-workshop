@@ -1,5 +1,5 @@
 ---
-title: "Attach IAM Role" # MODIFY THIS TITLE
+title: "Configure Your Instance" # MODIFY THIS TITLE
 chapter: true
 weight: 4 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
 ---
@@ -7,30 +7,40 @@ weight: 4 # MODIFY THIS VALUE TO REFLECT THE ORDERING OF THE MODULES
 <!-- MORE SUBMODULES CAN BE ADDED TO DIVIDE UP THE SETUP INTO SMALLER SECTIONS -->
 <!-- COPY AND PASTE THIS SUBMODULE FILE, RENAME, AND CHANGE THE CONTENTS AS NECESSARY -->
 
-# Attaching an IAM Role
+# Configure Your Instance :hammer:
+<ol>
+<li>
+On the dashboard for the Argo CD Instance, click Settings.
+</li>
 
-## Submodule Four Heading <!-- MODIFY THIS SUBHEADING -->
+<li>
+On the left side, under "Security & Access" select System Accounts.
+</li>
 
-This paragraph block can be used to explain how to attach an IAM role if necessary. Example content guidance can be found at the bottom of the page.
 
-{{% notice info %}}
-<p style='text-align: left;'>
-**REMOVE:** With the exception of _index.md, the module folders and filenames should be changed to better reflect their content, i.e. 1_Planning as the folder and 11_HowToBegin as the first submodule. Changing the "weight" value of the header is ultimately what reflects the order the modules are presented.
-</p>
+<li>
+Enable the "Admin Account" by clicking the toggle and clicking Confirm when prompted.
+</li>
+
+
+<li>
+For the <code>admin</code> user, set a password.
+
+![Set Admin PW](/aws-modernization-workshop-base-main/static/images/adminpw.png)
+</li>
+
+{{% notice warning %}}
+Put a pin:pushpin:on this...you'll need your password to access your applications later.
 {{% /notice %}}
 
-### Next Section Heading <!-- MODIFY THIS HEADING -->
-This paragraph block can optionally be utilized to lead into the next section of the workshop.
+<li>
+Your instance URL is listed in the URL field on your Argo CD instance page. It will look something like this: <code>instance-id.cd.akuity.cloud</code>
+</li>
 
-#### Example Content Guidance
-### Attach the IAM role to your instance <!-- MODIFY THIS SUBHEADING -->
-Will need
+<li>
+For username, enter <code>admin</code>, and the password you set previously. Wait for the blue cogwheel next to your instance's name to stop, and you should be able to access your instance.
+</li>
 
-    Follow this deep link to find your Cloud9 EC2 instance
-    (https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:search=aws-cloud9-circleci-workshop;sort=desc:launchTime)
+</ol>
 
-    Select the instance, then choose Actions / Security / Modify IAM role Attach IAM role
-
-    Choose the role that we created in the previous step: CircleCI-Workshop-Admin. Find IAM role
-
-    Click Save
+Congratulations, you now have a fully-managed Argo CD instance! :tada:
